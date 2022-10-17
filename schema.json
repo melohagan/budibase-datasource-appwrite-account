@@ -1,0 +1,192 @@
+{
+  "type": "datasource",
+  "metadata": {},
+  "schema": {
+    "docs": "https://appwrite.io/docs/client/account",
+    "friendlyName": "Appwrite account",
+    "type": "API",
+    "description": "Manage user accounts in Appwrite",
+    "datasource": {
+      "endpoint": {
+        "type": "string",
+        "required": true
+      },
+      "projectId": {
+        "type": "string",
+        "required": true
+      }
+    },
+    "query": {
+      "create": {
+        "type": "fields",
+        "fields": {
+          "userId": {
+            "type": "string",
+            "required": true
+          },
+          "email": {
+            "type": "string",
+            "required": true
+          },
+          "password": {
+            "type": "password",
+            "required": true
+          },
+          "name": {
+            "type": "string",
+            "required": false
+          }
+        }
+      },
+      "createEmailSession": {
+        "type": "fields",
+        "fields": {
+          "email": {
+            "type": "string",
+            "required": true
+          },
+          "password": {
+            "type": "password",
+            "required": true
+          }
+        }
+      },
+      "createOAuth2Session": {
+        "type": "fields",
+        "fields": {
+          "provider": {
+            "type": "string",
+            "required": true
+          },
+          "success": {
+            "type": "string",
+            "required": false
+          },
+          "failure": {
+            "type": "string",
+            "required": false
+          }
+        }
+      },
+      "createMagicURLSession": {
+        "type": "fields",
+        "fields": {
+          "userId": {
+            "type": "string",
+            "required": true
+          },
+          "email": {
+            "type": "string",
+            "required": true
+          },
+          "url": {
+            "type": "string",
+            "required": false
+          }
+        }
+      },
+      "createPhoneSession": {
+        "type": "fields",
+        "fields": {
+          "userId": {
+            "type": "string",
+            "required": true
+          },
+          "phone": {
+            "type": "string",
+            "required": true
+          }
+        }
+      },
+      "createAnonymousSession": {
+        "type": "fields"
+      },
+      "createJWT": {
+        "type": "fields"
+      },
+      "read": {
+        "type": "fields"
+      },
+      "readBySessionId": {
+        "type": "fields",
+        "fields": {
+          "sessionId": {
+            "type": "string",
+            "required": true
+          }
+        }
+      },
+      "update": {
+        "type": "fields",
+        "fields": {
+          "name": {
+            "type": "string",
+            "required": false
+          },
+          "email": {
+            "type": "string",
+            "required": false
+          },
+          "phone": {
+            "type": "string",
+            "required": false
+          },
+          "password": {
+            "type": "password",
+            "required": false
+          }
+        }
+      },
+      "updatePassword": {
+        "type": "fields",
+        "fields": {
+          "password": {
+            "type": "password",
+            "required": true
+          },
+          "oldPassword": {
+            "type": "password",
+            "required": false
+          }
+        }
+      },
+      "updatePrefs": {
+        "type": "json"
+      },
+      "updateStatus": {
+        "type": "fields"
+      },
+      "deleteSession": {
+        "type": "fields",
+        "fields": {
+          "sessionId": {
+            "type": "string",
+            "required": true
+          }
+        }
+      },
+      "deleteSessions": {
+        "type": "fields"
+      }
+    },
+    "extra": {
+      "type": {
+        "displayName": "Type",
+        "type": "list",
+        "required": false,
+        "data": {
+          "read": [
+            "Account",
+            "Preferences",
+            "Sessions",
+            "Logs"
+          ],
+          "verification": [
+            "Email",
+            "Phone"
+          ]
+        }
+      }
+    }
+  }
+}
