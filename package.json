@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@budibase/types": "^2.0.13",
-    "appwrite": "^10.1.0"
+    "node-appwrite": "^8.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.19.0",

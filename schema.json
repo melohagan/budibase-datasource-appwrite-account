@@ -2,8 +2,8 @@
   "type": "datasource",
   "metadata": {},
   "schema": {
-    "docs": "https://appwrite.io/docs/client/account",
-    "friendlyName": "Appwrite account",
+    "docs": "https://appwrite.io/docs/server/users",
+    "friendlyName": "Appwrite users",
     "type": "API",
     "description": "Manage user accounts in Appwrite",
     "datasource": {
@@ -13,6 +13,10 @@
       },
       "projectId": {
         "type": "string",
+        "required": true
+      },
+      "apiKey": {
+        "type": "password",
         "required": true
       }
     },
@@ -26,99 +30,44 @@
           },
           "email": {
             "type": "string",
-            "required": true
+            "required": false
+          },
+          "phone": {
+            "type": "string",
+            "required": false
           },
           "password": {
             "type": "password",
-            "required": true
+            "required": false
           },
           "name": {
             "type": "string",
             "required": false
+          },
+          "passwordVersion": {
+            "type": "string",
+            "required": false,
+            "display": "Password version"
           }
         }
-      },
-      "createEmailSession": {
-        "type": "fields",
-        "fields": {
-          "email": {
-            "type": "string",
-            "required": true
-          },
-          "password": {
-            "type": "password",
-            "required": true
-          }
-        }
-      },
-      "createOAuth2Session": {
-        "type": "fields",
-        "fields": {
-          "provider": {
-            "type": "string",
-            "required": true
-          },
-          "success": {
-            "type": "string",
-            "required": false
-          },
-          "failure": {
-            "type": "string",
-            "required": false
-          }
-        }
-      },
-      "createMagicURLSession": {
-        "type": "fields",
-        "fields": {
-          "userId": {
-            "type": "string",
-            "required": true
-          },
-          "email": {
-            "type": "string",
-            "required": true
-          },
-          "url": {
-            "type": "string",
-            "required": false
-          }
-        }
-      },
-      "createPhoneSession": {
-        "type": "fields",
-        "fields": {
-          "userId": {
-            "type": "string",
-            "required": true
-          },
-          "phone": {
-            "type": "string",
-            "required": true
-          }
-        }
-      },
-      "createAnonymousSession": {
-        "type": "fields"
-      },
-      "createJWT": {
-        "type": "fields"
       },
       "read": {
-        "type": "fields"
-      },
-      "readBySessionId": {
         "type": "fields",
         "fields": {
-          "sessionId": {
+          "userId": {
             "type": "string",
-            "required": true
+            "required": false,
+            "display": "User ID"
           }
         }
       },
       "update": {
         "type": "fields",
         "fields": {
+          "userId": {
+            "type": "string",
+            "required": true
+          },
           "name": {
             "type": "string",
             "required": false
@@ -127,46 +76,42 @@
             "type": "string",
             "required": false
           },
-          "phone": {
+          "emailVerification": {
+            "type": "string",
+            "required": false
+          },
+          "number": {
+            "type": "string",
+            "required": false
+          },
+          "phoneVerification": {
             "type": "string",
             "required": false
           },
           "password": {
             "type": "password",
             "required": false
-          }
-        }
-      },
-      "updatePassword": {
-        "type": "fields",
-        "fields": {
-          "password": {
-            "type": "password",
-            "required": true
           },
-          "oldPassword": {
-            "type": "password",
+          "status": {
+            "type": "string",
             "required": false
           }
         }
       },
-      "updatePrefs": {
-        "type": "json"
-      },
-      "updateStatus": {
-        "type": "fields"
-      },
-      "deleteSession": {
+      "delete": {
         "type": "fields",
         "fields": {
+          "userId": {
+            "type": "string",
+            "required": true,
+            "display": "User ID"
+          },
           "sessionId": {
             "type": "string",
-            "required": true
+            "required": false,
+            "display": "Session ID"
           }
         }
-      },
-      "deleteSessions": {
-        "type": "fields"
       }
     },
     "extra": {
@@ -175,15 +120,24 @@
         "type": "list",
         "required": false,
         "data": {
+          "create": [
+            "Default",
+            "Bcrypt",
+            "MD5",
+            "Argon2",
+            "SHA",
+            "PHPass"
+          ],
           "read": [
-            "Account",
+            "Users",
             "Preferences",
             "Sessions",
+            "Memberships",
             "Logs"
           ],
-          "verification": [
-            "Email",
-            "Phone"
+          "delete": [
+            "Users",
+            "Sessions"
           ]
         }
       }
