@@ -1,7 +1,7 @@
 {
-  "name": "appwrite-account",
-  "version": "1.0.0",
-  "description": "Manage user accounts in Appwrite",
+  "name": "appwrite-users",
+  "version": "1.1.0",
+  "description": "Manage users in Appwrite",
   "main": "src/index.ts",
   "license": "MIT",
   "scripts": {
