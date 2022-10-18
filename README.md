@@ -1,8 +1,8 @@
-# Appwrite-account
-This is a readme for your new Budibase plugin.
+# Appwrite-users
+Official docs here: https://appwrite.io/docs/server/users?sdk=nodejs-default
 
 # Description
-Manage user accounts in Appwrite
+Manage users in Appwrite
 
 Find out more about [Budibase](https://github.com/Budibase/budibase).
 
