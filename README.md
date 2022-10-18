@@ -1,5 +1,5 @@
 # Appwrite-users
-This is a readme for your new Budibase plugin.
+Official docs here: https://appwrite.io/docs/server/users?sdk=nodejs-default
 
 # Description
 Manage users in Appwrite
